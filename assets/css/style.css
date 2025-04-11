@@ -1,0 +1,867 @@
+@keyframes slide {
+	0%, 10% { transform: translateX(0); }
+	15%, 30% { transform: translateX(-100%); }
+	35%, 50% { transform: translateX(-200%); }
+	55%, 70% { transform: translateX(-300%); }
+	75%, 90% { transform: translateX(-400%); }
+	95%, 100% { transform: translateX(-500%); } /* Asegura que vuelva al inicio sin cortes */
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+.header{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 80px;
+	margin-left: 80px;
+}
+
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+/* NAVBAR GENERAL */
+.custom-navbar {
+    background-color: #477FFB !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Logo + elementos alineados verticalmente */
+.custom-navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Enlaces del menú */
+.custom-navbar .nav-link,
+.custom-navbar .navbar-brand {
+    color: white !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+/* Efecto al pasar el cursor */
+.custom-navbar .nav-link:hover,
+.custom-navbar .navbar-brand:hover {
+    color: #e2e8f0 !important;
+    transform: translateY(-2px); /* Pequeño levantamiento */
+}
+
+/* Centrado horizontal de los ítems del menú */
+.custom-navbar .navbar-nav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Espaciado entre ítems */
+.custom-navbar .nav-item {
+    margin: 0 20px;
+}
+
+/* Dropdown estilizado */
+.dropdown-menu {
+    background: white;
+    border-radius: 12px;
+    padding: 10px 0;
+    border: none;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover moderno */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #477FFB;
+    color: white;
+    border-radius: 6px;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    .custom-navbar .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .custom-navbar .nav-item {
+        margin: 10px 0;
+    }
+}
+
+/* Efecto animado al logo */
+.custom-navbar .navbar-brand img {
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+/* Al pasar el mouse */
+.custom-navbar .navbar-brand img:hover {
+    transform: scale(1.05) rotate(-1deg); /* Ligero zoom + giro */
+    filter: brightness(1.1); /* Un poco más brillante */
+}
+
+
+/* Imagenes animadas */
+.custom-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 500px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .custom-slides img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .custom-slides img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+
+/* Ilustración 2025 */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar las imágenes */
+    gap: 5px; /* Espacio entre imágenes */
+    padding: 10px;
+}
+
+.image-container div {
+    flex: 1 1 200px; /* Tamaño flexible con mínimo de 200px */
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%; /* Para que la imagen se adapte al contenedor */
+    max-width: 180px; /* Máximo tamaño de imagen */
+    height: auto; /* Mantiene proporciones */
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+}
+
+/* 📌 Para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .image-container {
+        flex-direction: column; /* Muestra en una columna */
+        align-items: center;
+    }
+
+    .image-container img {
+        max-width: 150px; /* Reduce el tamaño en pantallas pequeñas */
+    }
+}
+
+.responsive-image {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.responsive-image img {
+    width: 100%; /* La imagen se adapta al ancho del contenedor */
+    max-width: 1080px; /* Define un tamaño máximo */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+}
+
+/* 📌 Para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .responsive-image img {
+        max-width: 90%; /* Reduce el tamaño en móviles */
+    }
+}
+
+/* Módulos reactivos */
+.info-mod1{
+	display: flex;
+    justify-content: left;
+	margin: 50px;
+    padding: 10px;
+}
+
+.info-mod1 img{
+	width: 100%; 
+    max-width: 1080px; 
+    height: auto; 
+    border-radius: 10px;
+}
+
+@media (max-width: 600px){
+	.info-mod1 img{
+		max-width: 90%
+	}
+}
+
+.info-mod2{
+	display: flex;
+    justify-content: right;
+	margin: 50px;
+    padding: 10px;
+}
+
+.info-mod2 img{
+	width: 100%; 
+    max-width: 1080px; 
+    height: auto; 
+    border-radius: 10px;
+}
+
+@media (max-width: 600px){
+	.info-mod2 img{
+		max-width: 90%
+	}
+}
+
+.info-mod3{
+	display: flex;
+    justify-content: left;
+	margin: 50px;
+    padding: 10px;
+}
+
+.info-mod3 img{
+	width: 100%; 
+    max-width: 1080px; 
+    height: auto; 
+    border-radius: 10px;
+}
+
+@media (max-width: 600px){
+	.info-mod3 img{
+		max-width: 90%
+	}
+}
+
+/* Contenedor principal Info módulos */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 30px;
+    width: 100%;
+    background-image: url(../imgs/pexels-kindelmedia-7688174.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.info-mod1, .info-mod2, .info-mod3 {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 1080px;
+    text-align: center;
+}
+
+/* Usamos media queries para posicionar de forma alterna */
+@media (min-width: 992px) {
+    .info-mod1 {
+        align-self: flex-start;
+    }
+
+    .info-mod2 {
+        align-self: flex-end;
+    }
+
+    .info-mod3 {
+        align-self: flex-start;
+    }
+}
+
+
+/* Botón estilizado */
+.btn {
+    margin-top: 20px;
+    padding: 18px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.info-mod1 button,
+.info-mod2 button,
+.info-mod3 button {
+    margin-top: 20px;
+    width: fit-content;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    align-self: center;
+}
+
+/* Responsivo opcional */
+@media (max-width: 576px) {
+    .info-mod1 button,
+    .info-mod2 button,
+    .info-mod3 button {
+        width: 100%;
+    }
+}
+
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* 📱 Responsivo para móviles */
+@media (max-width: 768px) {
+    .contenedor {
+        padding: 15px;
+    }
+
+    .info-mod1, .info-mod2, .info-mod3 {
+        width: 100%;
+        padding: 20px;
+        align-items: center; /* 📌 Todo centrado en pantallas pequeñas */
+        margin: 0;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+.header_adm {
+    background-color: #07afaf;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 30px;
+    display: flex;
+    align-items: center; /* 📌 Centra verticalmente los elementos */
+    justify-content: space-between; /* 📌 Separa el logo y el botón */
+}
+
+.header_adm button {
+    background-color: #055e5e; /* 📌 Color que combina con el fondo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header_adm button:hover {
+    background-color: #044747; /* 📌 Un tono más oscuro para el hover */
+}
+
+.header_adm img{
+    max-width: 100%;
+    height: 100px;
+}
+
+.header_cont img{
+    max-width: 100%;
+    height: 100px;
+}
+
+.header_gest img{
+    max-width: 100%;
+    height: 100px;
+}
+/* 📌 Corregimos la clase del banner (había un punto en el nombre) */
+.banner_adm {
+    display: flex;
+    justify-content: center; /* 📌 Centra la imagen horizontalmente */
+    align-items: center; /* 📌 Asegura que el contenedor tenga alineación */
+    width: 100%;
+}
+
+.banner_adm img {
+    max-width: 100%;
+    height: auto;
+}
+
+.adm_container {
+    display: flex;
+    flex-direction: column; /* 📌 Coloca las imágenes una debajo de la otra */
+    align-items: center; /* 📌 Centra horizontalmente */
+    justify-content: center; /* 📌 Asegura que todo el contenido esté centrado */
+    width: 100%;
+}
+
+.adm_container img {
+    width: 70%; /* 📌 Aumenta el tamaño de las imágenes */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* 📌 Ajusta las imágenes sin recortarlas */
+    margin: 20px;
+}
+
+.custom-btn {
+    background-color: #055e5e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: #044747;
+}
+
+.clientes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #ffffff; /* opcional, para fondo blanco */
+  }
+  
+  .img-clientes {
+    width: 100%;
+    max-width: 1200px; /* evita que se estire demasiado en pantallas grandes */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+/*Inicio WP*/
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+  
+  .whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .whatsapp-float img:hover {
+    transform: scale(1.1);
+  }
+  
+/*Fin WP*/
+
+/*Inicio Footer inditex*/
+.footer {
+    background-color: #477FFB;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+.footer-top {
+    background-color: #e5e5e5;
+    padding: 30px;
+    color: #2b509e;
+}
+.btn-contact {
+    background-color: #ff5a00;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn-contact:hover {
+    background-color: #cc4700;
+}
+.footer-bottom {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.footer-section {
+    width: 220px;
+    text-align: left;
+}
+.footer-section.logo {
+    text-align: center;
+}
+.footer-section.logo img{
+    width: auto;
+    height: 200px;
+}
+.social-icons i {
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+}
+.footer-bottom-text {
+    background-color: #3258ac;
+    padding: 10px;
+    font-size: 14px;
+}
+.footer-bottom-text span {
+    font-weight: bold;
+}
+/*Fin footer inditex*/
+/*Inicio footer adm*/
+.footer-bottom-text-adm {
+    background-color: #148f8f;
+    padding: 10px;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+}
+.footer-bottom-text-adm span {
+    font-weight: bold;
+}
+.footer-bottom-text-adm p{
+    align-self: center;
+}
+
+/*Inicio header gest-pago*/
+.header_gest {
+    background-color: #571191;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 30px;
+    display: flex;
+    align-items: center; /* 📌 Centra verticalmente los elementos */
+    justify-content: space-between; /* 📌 Separa el logo y el botón */
+}
+
+.header_gest button {
+    background-color: #3d0b66; /* 📌 Color que combina con el fondo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header_gest button:hover {
+    background-color: #390b5e; /* 📌 Un tono más oscuro para el hover */
+}
+/*Fin header gest-pago*/
+
+/*Inicio footer gest-pago*/
+.footer-bottom-text-gest {
+    background-color: #3d0b66;
+    padding: 10px;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+}
+.footer-bottom-text-gest span {
+    font-weight: bold;
+}
+.footer-bottom-text-adm p{
+    align-self: center;
+}
+
+.custom-btn1 {
+    background-color: #3d0b66;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-btn1:hover {
+    background-color: #390b5e;
+}
+/*Fin footer gest-pago*/
+
+/*Inicio header gest-pago*/
+.header_cont {
+    background-color: #62b42b;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 30px;
+    display: flex;
+    align-items: center; /* 📌 Centra verticalmente los elementos */
+    justify-content: space-between; /* 📌 Separa el logo y el botón */
+}
+
+.header_cont button {
+    background-color: #3d721a; /* 📌 Color que combina con el fondo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header_cont button:hover {
+    background-color: #305a15; /* 📌 Un tono más oscuro para el hover */
+}
+/*Fin header contabilidad*/
+
+/*Inicio footer gest-pago*/
+.footer-bottom-text-cont {
+    background-color: #3d721a;
+    padding: 10px;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+}
+.footer-bottom-text-cont span {
+    font-weight: bold;
+}
+.footer-bottom-text-adm p{
+    align-self: center;
+}
+
+.custom-btn2 {
+    background-color: #3d721a;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-btn2:hover {
+    background-color: #305a15;
+}
+/*Fin footer contabilidad*/
+
+/*Inicio banner dashboard*/
+
+.dashboard{
+        display: flex;
+        justify-content: center; /* 📌 Centra la imagen horizontalmente */
+        align-items: center; /* 📌 Asegura que el contenedor tenga alineación */
+        width: 100%;
+}
+.dashboard img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* 🎯 Sombra suave y profesional */
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave */
+}
+
+.dashboard img:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); /* 💡 Ligero aumento al pasar el mouse */
+}
+
+/* 🎬 Animación suave al entrar */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .bannerformulario img {
+      width: 85%;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+  
+      /* ✨ Animación */
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+  }
+  
+  /* ⏱️ Retraso para cada imagen si quieres escalonarlas */
+  .bannerformulario img:nth-child(1) {
+      animation-delay: 0.2s;
+  }
+  .bannerformulario img:nth-child(2) {
+      animation-delay: 0.6s;
+  }
+  .bannerformulario img:nth-child(3) {
+      animation-delay: 0.8s;
+  }
+    
+/* Contenedor del formulario */
+.form-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #f8f9fa;
+    box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    padding: 20px;
+    border-top: 4px solid #477FFB;
+}
+
+/* Estilo del formulario */
+.contact-form {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form h4 {
+    flex: 1 1 100%;
+    margin: 0 0 10px;
+    text-align: center;
+    color: #333;
+}
+
+/* Campos */
+.contact-form input,
+.contact-form select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 220px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus {
+    border-color: #477FFB;
+    box-shadow: 0 0 5px rgba(71, 127, 251, 0.3);
+    outline: none;
+}
+
+/* Botón */
+.contact-form button {
+    background-color: #477FFB;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #365dcf;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-form {
+        flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form select {
+        width: 100%;
+    }
+}
+
+.contact-form select.formfijo {
+    appearance: none; /* Oculta el estilo por defecto del navegador */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 10px 15px;
+    width: 220px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-image: url("data:image/svg+xml,%3Csvg fill='%23477FFB' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+}
+
+/* Hover y focus */
+.contact-form select.formfijo:hover {
+    border-color: #477FFB;
+    box-shadow: 0 0 5px rgba(71, 127, 251, 0.2);
+}
+
+.contact-form select.formfijo:focus {
+    border-color: #365dcf;
+    box-shadow: 0 0 6px rgba(71, 127, 251, 0.3);
+    outline: none;
+}
+
+
+.bodyformulario {
+    padding-bottom: 200px; /* ajusta según la altura del formulario */
+}
+
+.proceso1{
+    display: flex;
+    justify-content: center; /* 📌 Centra la imagen horizontalmente */
+    align-items: center; /* 📌 Asegura que el contenedor tenga alineación */
+    width: 100%;
+}
+
+.proceso1 img{
+    max-width: 100%;
+    height: auto;
+    max-height: 800px;
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave */
+}

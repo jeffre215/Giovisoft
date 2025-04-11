@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<body class="bodyformulario">
+    <!-- Inicio nav bar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="inditex.html">
+                <img src="assets/imgs/Imagen7.png" height="80px" alt="...">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="inditex.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Soporte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario.html">Licenciamiento</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li ><a class="dropdown-item" href="Administrativo.html">Saint Administrativo</a></li>
+                            <li><a class="dropdown-item" href="Gestión de pago.html">Saint Gestión de Pago</a></li>
+                            <li><a class="dropdown-item" href="Contable.html">Saint Contable</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+    <!-- Banner informativo -->
+     <div class="dashboard">
+        <img src="assets/imgs/Banner.dashboard.jpg" alt="">
+     </div>
+    <!-- Inicio tarjetas contenido -->
+     <div class="bannerformulario">
+        <img src="assets/imgs/Banner.implan.jpg" alt="...">
+        <img src="assets/imgs/Banner.forma.jpg" alt="...">
+        <img src="assets/imgs/Banner.desarrollo.jpg" alt="...">
+     </div>
+    <!-- Inicio proceso trabajo -->
+     <div class="proceso1">
+        <img src="assets/imgs/Proceso.png" alt="">
+     </div>
+    <!-- Inicio formulario -->
+    <div class="form-fixed-bottom">
+        <form class="contact-form">
+          <h4>¿Interesado en nuestros productos?</h4>
+          <div class="form-group">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="tel" name="telefono" placeholder="Teléfono" required>
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <select class="formfijo" name="producto" required>
+              <option value="">Producto de interés</option>
+              <option value="administrativo">Saint Administrativo</option>
+              <option value="contable">Saint Contable</option>
+              <option value="gestion">Saint Gestión de Pago</option>
+              <option value="gestion">Desarrollo WEB</option>
+            </select>
+          </div>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    <!-- Inicio footer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('.scroll-fade');
+        
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Solo una vez
+                    }
+                });
+            }, {
+                threshold: 0.2 // Puedes ajustar el porcentaje de visibilidad
+            });
+        
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+        </script>
+        
+</body>
+</html>
